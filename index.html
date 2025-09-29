@@ -1,116 +1,162 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Alt Credit Passport</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Alt Credit Passport — Alternative Data, Not Debt</title>
+
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Meta / Social -->
+  <meta name="description" content="Borderless, explainable credit built from real-life signals like rent, utilities, and phone history — not debt." />
+  <meta property="og:title" content="Your Credit Should Reflect Your Life — Not Just Your Debt" />
+  <meta property="og:description" content="Alternative-data score with clear reasons & tips. Join the waitlist." />
+  <meta property="og:type" content="website" />
+  <meta name="theme-color" content="#0a1022" />
+
   <style>
-    body {
-      margin: 0;
-      font-family: 'Inter', sans-serif;
-      background-color: #0A1A2F;
-      color: #fff;
-      line-height: 1.6;
+    :root{
+      --bg:#0b132b;
+      --bg-2:#0f1b3d;
+      --panel:#111f3f;
+      --text:#e6edf7;
+      --muted:#a9b7d0;
+      --primary:#18b6e6;
+      --primary-2:#4adeff;
+      --good:#34d399;
+      --warn:#f59e0b;
+      --card:#0f1b3a;
+      --ring: rgba(24,182,230,.35);
+      --radius:14px;
+      --shadow:0 10px 40px rgba(0,0,0,.35);
     }
-    header {
-      text-align: center;
-      padding: 60px 20px 20px;
-    }
-    header h1 {
-      font-size: 2.5rem;
-      margin-bottom: 15px;
-    }
-    header p {
-      font-size: 1.2rem;
-      max-width: 600px;
-      margin: auto;
-      color: #cbd5e1;
-    }
-    .cta {
-      text-align: center;
-      margin: 30px auto;
-    }
-    .cta input {
-      padding: 12px;
-      margin-right: 10px;
-      border-radius: 6px;
-      border: none;
-      width: 250px;
-    }
-    .cta button {
-      padding: 12px 20px;
-      background: #06b6d4;
-      border: none;
-      border-radius: 6px;
-      color: white;
-      font-weight: bold;
-      cursor: pointer;
-    }
-    .section {
-      max-width: 1000px;
-      margin: 50px auto;
-      padding: 0 20px;
-    }
-    .card {
-      background: #13294B;
-      border-radius: 8px;
-      padding: 20px;
-      margin: 15px 0;
-    }
-    .score {
-      text-align: center;
-      background: #1E3A5F;
-      border-radius: 12px;
-      padding: 20px;
-      margin: 30px 0;
-    }
-    .score h2 {
-      font-size: 3rem;
-      color: #06b6d4;
-    }
-    footer {
-      text-align: center;
-      padding: 30px;
-      color: #94a3b8;
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background: radial-gradient(1200px 800px at 20% -10%, #183766 0%, transparent 60%),
+                              radial-gradient(1000px 700px at 100% 0%, #102852 0%, transparent 60%),
+                              var(--bg);
+              color:var(--text); font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;}
+    a{color:var(--primary)}
+    .container{max-width:1120px;margin:0 auto;padding:24px}
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:8px 0}
+    .brand{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:.2px}
+    .brand i{display:grid;place-items:center;width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,var(--primary),var(--primary-2));box-shadow:0 8px 24px var(--ring);font-style:normal;color:#03202b}
+    .cta-small{padding:10px 14px;border-radius:10px;background:rgba(255,255,255,.06);backdrop-filter: blur(4px);border:1px solid rgba(255,255,255,.06)}
+    .hero{display:grid;grid-template-columns:1.25fr 1fr;gap:28px;align-items:center;padding:32px 0}
+    .hero h1{font-size: clamp(32px, 5vw, 58px);line-height:1.05;margin:10px 0 16px}
+    .hero p{color:var(--muted);font-size: clamp(16px, 1.8vw, 19px)}
+    .waitlist{margin:22px 0;display:flex;gap:10px;flex-wrap:wrap}
+    .input{flex:1;min-width:240px;padding:14px 16px;border-radius:12px;border:1px solid rgba(255,255,255,.12);background:#0c1630;color:var(--text);outline:none}
+    .btn{padding:14px 18px;border-radius:12px;border:0;background:linear-gradient(135deg,var(--primary),var(--primary-2));color:#031a24;font-weight:800;cursor:pointer;box-shadow:0 8px 30px var(--ring)}
+    .badges{display:flex;gap:14px;flex-wrap:wrap;color:var(--muted);font-size:.95rem}
+    .badge{display:flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.06)}
+
+    .score-card{background:linear-gradient(180deg,#101f41,#0c1834);border:1px solid rgba(255,255,255,.06);
+      border-radius:var(--radius);padding:24px;box-shadow:var(--shadow)}
+    .score{font-size:62px;font-weight:800;letter-spacing:1px;color:var(--primary-2);margin:6px 0 2px}
+    .meter{height:10px;border-radius:999px;background:#09122a;overflow:hidden;margin:8px 0 14px;border:1px solid rgba(255,255,255,.08)}
+    .meter>span{display:block;height:100%;width:76%;background:linear-gradient(90deg,var(--good),var(--primary));}
+
+    .list{display:flex;flex-direction:column;gap:8px;margin:10px 0 0}
+    .list li{list-style:none;display:flex;align-items:flex-start;gap:10px;color:var(--text)}
+    .dot{width:9px;height:9px;border-radius:50%;margin-top:7px;background:var(--good)}
+    .dot.warn{background:var(--warn)}
+
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin:46px 0 18px}
+    .panel{background:linear-gradient(180deg,#0f1c3a,#0c1730);border:1px solid rgba(255,255,255,.06);border-radius:var(--radius);padding:20px;box-shadow:var(--shadow)}
+    .panel h3{margin:4px 0 10px}
+    .muted{color:var(--muted)}
+
+    .footer{padding:28px 0;color:var(--muted);display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;border-top:1px solid rgba(255,255,255,.07);margin-top:26px}
+    .links a{color:var(--muted);text-decoration:none;margin-right:14px}
+    .success{display:none;margin-top:10px;color:var(--good);font-weight:600}
+
+    @media (max-width:900px){
+      .hero{grid-template-columns:1fr}
+      .grid{grid-template-columns:1fr}
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Your Credit Should Reflect Your Lifesty & Travel With You.</h1>
-    <p>Not built on debt — but on real life. Unlock a borderless, explainable score using alternative data like rent, utilities, and phone bills. Anywhere in the world.</p>
-    <!-- Rebuild trigger -->
-  </header>
+  <div class="container">
+    <!-- NAV -->
+    <div class="nav">
+      <div class="brand"><i>◆</i> Alt Credit Passport</div>
+      <div class="cta-small">Privacy-first • Explainable • Global</div>
+    </div>
 
-  <div class="cta">
-    <input type="email" placeholder="Enter your email">
-    <button>Join the Waitlist</button>
+    <!-- HERO -->
+    <section class="hero">
+      <div>
+        <h1>Your Credit Should Reflect Your Life — Not Just Your Debt.</h1>
+        <p>We build a borderless, explainable score from <b>alternative data</b> you already generate — rent, utilities, phone history, and cash-flow stability — with clear reasons and tips you can act on anywhere.</p>
+
+        <!-- WAITLIST FORM -->
+        <form id="wl" class="waitlist" action="#" method="POST">
+          <!-- Swap action with Formspree/Mailchimp when ready -->
+          <input class="input" type="email" name="email" placeholder="Enter your email" required />
+          <button class="btn" type="submit">Join the Waitlist</button>
+          <div id="msg" class="success">Thanks! You’re on the list. ✅</div>
+        </form>
+
+        <div class="badges">
+          <div class="badge">🔒 Privacy-first</div>
+          <div class="badge">🧭 Explainable score (reason codes)</div>
+          <div class="badge">🌍 Built for global mobility</div>
+        </div>
+      </div>
+
+      <!-- SCORE PREVIEW -->
+      <aside class="score-card">
+        <div class="muted" style="letter-spacing:.12em">PREVIEW</div>
+        <div class="score">742</div>
+        <div class="meter"><span></span></div>
+        <ul class="list">
+          <li><span class="dot"></span><span>Excellent on-time payments</span></li>
+          <li><span class="dot"></span><span>Stable income (16 months)</span></li>
+          <li><span class="dot"></span><span>Good liquidity (3 months)</span></li>
+          <li><span class="dot warn"></span><span><b>High essentials spend (~50%)</b></span></li>
+        </ul>
+        <p class="muted" style="margin-top:12px">Your Passport shows which factors drive your score and how to improve. Same inputs → same score. No black box.</p>
+      </aside>
+    </section>
+
+    <!-- PROBLEM / SOLUTION / TRUST -->
+    <section class="grid">
+      <div class="panel">
+        <h3>The Problem</h3>
+        <p class="muted">Traditional credit systems miss real-life behavior and don’t travel well. Millions are “thin-file” or invisible—especially when moving, renting, or building new lives.</p>
+      </div>
+      <div class="panel">
+        <h3>Our Solution</h3>
+        <p class="muted">A standardized score from verified alternative signals: rent, utilities, phone payments, account tenure, and cash-flow patterns. Transparent weights and reason codes.</p>
+      </div>
+      <div class="panel">
+        <h3>Trust & Transparency</h3>
+        <p class="muted">Privacy-first design, encryption, and deterministic rules. The same data always yields the same result—and you can see why.</p>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div>© 2025 Alt Credit Passport</div>
+      <div class="links">
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+        <a href="mailto:hello@example.com">Contact</a>
+      </div>
+    </footer>
   </div>
 
-  <div class="section score">
-    <h2>742</h2>
-    <p>Excellent on-time payments • Stable income • Good liquidity</p>
-    <p style="color:#f87171">⚠ High essentials spend (~50%)</p>
-    <p>Your Passport explains what drives your score and how to improve.</p>
-  </div>
-
-  <div class="section">
-    <div class="card">
-      <h3>The Problem</h3>
-      <p>2.7 billion people are “credit invisible.” Traditional systems ignore alternative data. Crossing a border often resets your financial life to zero.</p>
-    </div>
-    <div class="card">
-      <h3>The Solution</h3>
-      <p>A standardized, borderless score powered by real-world signals — rent, utilities, account tenure. Delivered with reasons and tips.</p>
-    </div>
-    <div class="card">
-      <h3>Trust & Transparency</h3>
-      <p>No black boxes. Same inputs → same score. Privacy-first and explainable so lenders — and you — can trust it.</p>
-    </div>
-  </div>
-
-  <footer>
-    <p>© 2025 Alt Credit Passport. All rights reserved.</p>
-  </footer>
+  <!-- Lightweight “thanks” handler (remove when hooking up a real form) -->
+  <script>
+    const form = document.getElementById('wl');
+    const msg  = document.getElementById('msg');
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      msg.style.display = 'block';
+      form.reset();
+    });
+  </script>
 </body>
 </html>
