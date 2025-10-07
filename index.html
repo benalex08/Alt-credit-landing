@@ -91,12 +91,26 @@
         <h1>Your Credit Should Reflect Your Life — Not Just Your Debt.</h1>
         <p>We build a borderless, explainable score from <b>alternative data</b> you already generate — rent, utilities, phone history, and cash-flow stability — with clear reasons and tips you can act on anywhere.</p>
 
-        <!-- WAITLIST FORM -->
-        <form id="wl" class="waitlist" action="https://magic.beehiiv.com/v1/a64ac821-4f54-461f-9cef-00cb9452a574" method="GET" target="_blank">
-          <!-- Swap action with Formspree/Mailchimp when ready -->
-          <input class="input" type="email" name="email" placeholder="Enter your email" required />
-          <button class="btn" type="submit">Join the Waitlist</button>
-        </form>
+      <!-- WAITLIST (beehiiv magic link) -->
+<div class="waitlist">
+  <input id="wl-email" class="input" type="email" placeholder="Enter your email" required>
+  <button id="wl-btn" class="btn" type="button">Join the Waitlist</button>
+</div>
+
+<script>
+  (function () {
+    var btn = document.getElementById('wl-btn');
+    var inp = document.getElementById('wl-email');
+    var BEEHIIV_MAGIC = 'https://magic.beehiiv.com/v1/a64ac821-4f54-461f-9cef-00cb9452a574?email=';
+
+    btn.addEventListener('click', function () {
+      var email = (inp.value || '').trim();
+      if (!email) { inp.focus(); return; }
+      // Redirect to beehiiv (works on mobile, no pop-up blocking)
+      window.location.href = BEEHIIV_MAGIC + encodeURIComponent(email);
+    });
+  })();
+</script>
 
         <div class="badges">
           <div class="badge">🔒 Privacy-first</div>
